@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
+var port = process.env.PORT || 8080;
 
 app.get('/',function(req, res){
 	console.log("GET request received!");
@@ -14,6 +15,6 @@ app.post('/location',function(req, res){
 	console.log(`Location is: ${req.body.latitude},${req.body.longitude}`);
 });
 
-app.listen(8080, function(){
-	console.log("Server running on port 8080");
+app.listen(port, function(){
+	console.log("Server running on port ${port}");
 })
